@@ -24,6 +24,7 @@ Prerequisite:
 Run following commands into terminal to create database
 
 1.`psql postgres`
+
 2.`CREATE DATABASE quiz`;
   
  Or Follow this tutorial: https://flaviocopes.com/postgres-how-to-install/
