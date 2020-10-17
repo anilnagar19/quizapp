@@ -31,4 +31,4 @@ Steps:
 
 
 
-NOTE: FrontEnd and Backend should not run in same terminal.
+NOTE: FrontEnd and server should not run in same terminal.
