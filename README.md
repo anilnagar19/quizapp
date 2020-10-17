@@ -28,3 +28,7 @@ Steps:
 2. run `npm install`
 3. create database with name `quiz`
 4. npm run dev
+
+
+
+NOTE: FrontEnd and Backend should not run in same terminal.
