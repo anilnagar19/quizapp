@@ -20,15 +20,18 @@ Prerequisite:
     `brew install postgresql`
 
     `brew services start postgresql`
+
+Run following commands into terminal to create database
+
+1.`psql postgres`
+2.`CREATE DATABASE quiz`;
   
  Or Follow this tutorial: https://flaviocopes.com/postgres-how-to-install/
 
 Steps:
 1. open server folder in terminal
 2. run `npm install`
-3. create database with name `quiz`
-4. npm run dev
-
+3. npm run dev
 
 
 NOTE: FrontEnd and server should not run in same terminal.
