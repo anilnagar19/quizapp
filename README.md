@@ -11,10 +11,14 @@ Node Version: 14.12.0
 # To Run Server
 
 Prerequisite:
+
 1.Node Version: 14.12.0
+
 2.Postgresql: 
     Using these commands can install postgres in system
+
     `brew install postgresql`
+
     `brew services start postgresql`
   
  Or Follow this tutorial: https://flaviocopes.com/postgres-how-to-install/
