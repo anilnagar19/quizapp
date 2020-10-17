@@ -38,7 +38,7 @@ function ListQuiz() {
 
 	return (
 		<div>
-			<Grid container spacing={2}>
+			{quizList.length ? (<Grid container spacing={2}>
 				{quizList.map((row) => (
 					<Grid item xs={12} md={3} lg={3} key={row.id}>
 						<Card className={classes.card} style={{ background: pickColor() }} onClick={() => attemptTest(row.id)}>
@@ -51,7 +51,12 @@ function ListQuiz() {
 						</Card>
 					</Grid>
 				))}
-			</Grid>
+			</Grid>)
+				: <Grid item xs={12} md={12} lg={12} className={classes.center}>
+					<Typography variant="h5" component="h2">
+						No Quiz Available </Typography>
+				</Grid>}
+
 		</div>
 	);
 }
@@ -72,7 +77,19 @@ const useStyles = makeStyles((theme) => ({
 	container: {
 		paddingTop: theme.spacing(4),
 		paddingBottom: theme.spacing(4),
-	}
+	},
+
+	center: {
+		padding: theme.spacing(2),
+		textAlign: 'center',
+		color: '#fff',
+		height: '80vh',
+		alignItems: 'center',
+		display: 'flex',
+		justifyContent: 'center',
+		fontSize: '2em',
+		cursor: 'pointer'
+	},
 }));
 
 export default ListQuiz;
