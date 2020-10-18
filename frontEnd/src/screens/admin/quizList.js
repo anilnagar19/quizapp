@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 import React, { useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -56,8 +57,8 @@ export default function QuizList() {
 						<TableRow key={row.id} >
 							<TableCell component="th" scope="row">{row.name}</TableCell>
 							<TableCell align="right">{row.numberofquestion}</TableCell>
-							<TableCell align="right">{row.startDate}</TableCell>
-							<TableCell align="right">{row.endDate}</TableCell>
+							<TableCell align="right">{moment(row.startDate, 'x').format("DD MMM YYYY")} </TableCell>
+							<TableCell align="right">{moment(row.endDate, 'x').format("DD MMM YYYY")}</TableCell>
 							<TableCell align="right">
 								<Button
 									variant="contained"

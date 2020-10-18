@@ -12,19 +12,21 @@ import CardActions from '@material-ui/core/CardActions';
 import { CardHeader, Divider, Typography } from '@material-ui/core';
 import { MuiPickersUtilsProvider, KeyboardDatePicker, } from '@material-ui/pickers';
 
+import moment from 'moment';
+
 function AddQuiz() {
 	const classes = useStyles();
 	const [quizName, setQuizName] = React.useState('');
 	const [successMsg, setSuccessMsg] = React.useState('');
 	const [numberOfQuestion, setNumberOfQuestion] = React.useState('');
-	const [endDate, setEndDate] = React.useState(new Date('2014-08-18T21:11:54'));
-	const [startDate, setStartdDate] = React.useState(new Date('2014-08-18T21:11:54'));
+	const [endDate, setEndDate] = React.useState(new Date());
+	const [startDate, setStartdDate] = React.useState(new Date());
 
 	const addNewQuiz = () => {
 		let data = {
 			name: quizName,
-			endDate: endDate,
-			startDate: startDate,
+			endDate: moment(endDate).format('x'),
+			startDate: moment(startDate).format('x'),
 			numberofquestion: parseInt(numberOfQuestion),
 		}
 		setSuccessMsg('Loading');
@@ -42,24 +44,22 @@ function AddQuiz() {
 
 	return (
 		<div>
-			<Card>
-				<CardHeader
-					title="Create New Quiz"
-				/>
-				<Divider></Divider>
-				<form autoComplete="off" >
-					<CardContent>
-						<Grid container spacing={2}>
-							<Grid container xs={12} md={12} lg={12} spacing={2}>
-								<Grid item xs={12} md={6} lg={6}>
-									<TextField value={quizName} onChange={e => setQuizName(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Quiz Name" variant="outlined" />
-								</Grid>
-								<Grid item xs={12} md={6} lg={6}>
-									<TextField value={numberOfQuestion} type="number" onChange={e => setNumberOfQuestion(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Number Of Questions" variant="outlined" />
-								</Grid>
+			<Grid item xs={12} md={6}>
+				<Card>
+					<CardHeader
+						title="Create New Quiz"
+					/>
+					<Divider></Divider>
+					<form autoComplete="off" >
+						<CardContent>
+							<Grid item xs={12} md={12} lg={12}>
+								<TextField value={quizName} onChange={e => setQuizName(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Quiz Name" variant="outlined" />
+							</Grid>
+							<Grid item xs={12} md={12} lg={12}>
+								<TextField value={numberOfQuestion} type="number" onChange={e => setNumberOfQuestion(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Number Of Questions" variant="outlined" />
 							</Grid>
 
-							<Grid item xs={12} md={6} lg={6}>
+							<Grid item xs={12} md={12} lg={12}>
 								<MuiPickersUtilsProvider utils={DateFnsUtils}>
 									<KeyboardDatePicker fullWidth
 										disableToolbar
@@ -69,6 +69,7 @@ function AddQuiz() {
 										id="date-picker-inline"
 										label="Start Date"
 										value={startDate}
+										minDate={new Date()}
 										onChange={e => setStartdDate(e)}
 										KeyboardButtonProps={{
 											'aria-label': 'change date',
@@ -76,8 +77,7 @@ function AddQuiz() {
 									/>
 								</MuiPickersUtilsProvider>
 							</Grid>
-
-							<Grid item xs={12} md={6} lg={6}>
+							<Grid item xs={12} md={12} lg={12}>
 								<MuiPickersUtilsProvider utils={DateFnsUtils}>
 									<KeyboardDatePicker fullWidth
 										disableToolbar
@@ -87,6 +87,7 @@ function AddQuiz() {
 										id="date-picker-inline"
 										label="Expiry Date"
 										value={endDate}
+										minDate={startDate}
 										onChange={e => setEndDate(e)}
 										KeyboardButtonProps={{
 											'aria-label': 'change date',
@@ -94,15 +95,15 @@ function AddQuiz() {
 									/>
 								</MuiPickersUtilsProvider>
 							</Grid>
-						</Grid>
-					</CardContent>
-					<CardActions>
+						</CardContent>
+						<CardActions>
+							<Button disabled={!quizName || !numberOfQuestion} variant="contained" color="primary" onClick={addNewQuiz}>Add</Button>
+							<Typography>{successMsg}</Typography>
+						</CardActions>
+					</form>
+				</Card>
 
-						<Button disabled={!quizName || !numberOfQuestion} variant="contained" color="primary" onClick={addNewQuiz}>Add</Button>
-						<Typography>{successMsg}</Typography>
-					</CardActions>
-				</form>
-			</Card>
+			</Grid>
 		</div >
 	);
 }
@@ -113,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
 		flexWrap: 'wrap',
 	},
 	margin: {
-		margin: theme.spacing(1)
+		marginBottom: theme.spacing(1)
 	},
 	withoutLabel: {
 		marginTop: theme.spacing(3),
