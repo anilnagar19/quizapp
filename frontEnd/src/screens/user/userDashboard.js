@@ -2,9 +2,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
+import { Switch, Route } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { Switch, Route } from "react-router-dom";
 
 import ListQuiz from './listQuiz';
 import AttemptTest from './attemptTest';

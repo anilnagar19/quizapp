@@ -22,15 +22,15 @@ import {
 } from "react-router-dom";
 
 import ListQuiz from './user/listQuiz';
-import AttemptTest from './user/attemptTest';
 import AddQuiz from './admin/addQuiz';
 import QuizList from './admin/quizList';
+import AttemptTest from './user/attemptTest';
 import AddQuestion from './admin/addQuestion';
 
 import { userSideBar } from './user/components/userSideBar.js';
 import { adminSideBar } from './admin/components/adminSidebar.js';
 
-export default function Dashoard(props) {
+export default function Dashoard() {
 	const classes = useStyles();
 	const location = useLocation();
 

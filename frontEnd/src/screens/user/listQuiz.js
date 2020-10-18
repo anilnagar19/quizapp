@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { useHistory } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
+
 import pickColor from '../../utils/utils';
 
 function ListQuiz() {

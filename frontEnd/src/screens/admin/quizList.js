@@ -1,23 +1,17 @@
 import axios from 'axios';
+import React, { useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import Button from '@material-ui/core/Button';
 import TableRow from '@material-ui/core/TableRow';
 import { useHistory } from 'react-router-dom';
-import React, { useEffect } from 'react';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import { makeStyles } from '@material-ui/core/styles';
 import TableContainer from '@material-ui/core/TableContainer';
 
-const useStyles = makeStyles({
-	table: {
-		minWidth: 650,
-	},
-});
-
-export default function QuizList(props) {
+export default function QuizList() {
 	const classes = useStyles();
 	const history = useHistory();
 	const [quizList, setQuizList] = React.useState([]);
@@ -77,3 +71,9 @@ export default function QuizList(props) {
 		</TableContainer>
 	);
 }
+
+const useStyles = makeStyles({
+	table: {
+		minWidth: 650,
+	},
+});

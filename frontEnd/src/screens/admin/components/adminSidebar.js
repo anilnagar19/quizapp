@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
-import { Link } from "react-router-dom";
 
 export const adminSideBar = (
 	<div>

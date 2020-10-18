@@ -16,8 +16,8 @@ import TextField from '@material-ui/core/TextField';
 
 import ShowQuestion from './components/showQuestion';
 
-let userAnswersArray = [];
 let count = 0;
+let userAnswersArray = [];
 
 function AttemptTest() {
 	const classes = useStyles();
@@ -70,7 +70,7 @@ function AttemptTest() {
 		}
 
 		axios.post('http://localhost:8000/quiz/createUser', data)
-			.then(function (response) {
+			.then(function () {
 				history.push({
 					pathname: '/user'
 				});

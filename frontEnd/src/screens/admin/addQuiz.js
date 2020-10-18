@@ -8,8 +8,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
-import { CardHeader, Divider, Typography } from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
+import { CardHeader, Divider, Typography } from '@material-ui/core';
 import { MuiPickersUtilsProvider, KeyboardDatePicker, } from '@material-ui/pickers';
 
 function AddQuiz() {
@@ -94,8 +94,6 @@ function AddQuiz() {
 									/>
 								</MuiPickersUtilsProvider>
 							</Grid>
-
-
 						</Grid>
 					</CardContent>
 					<CardActions>

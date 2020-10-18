@@ -14,11 +14,5 @@ export const userSideBar = (
 			</ListItemIcon>
 			<ListItemText primary="All Quiz" />
 		</ListItem>
-		{/* <ListItem button component={Link} to="/admin/viewQuiz">
-			<ListItemIcon>
-				<ShoppingCartIcon />
-			</ListItemIcon>
-			<ListItemText primary="View Quiz" />
-		</ListItem> */}
 	</div>
 );

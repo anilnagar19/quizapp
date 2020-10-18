@@ -14,14 +14,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import AddQuiz from './addQuiz';
 import QuizList from './quizList';
 import AddQuestion from './addQuestion'
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-export default function AdminDashboard(props) {
+export default function AdminDashboard() {
 
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(true);
@@ -89,7 +88,6 @@ export default function AdminDashboard(props) {
 		</div>
 	);
 }
-
 
 const drawerWidth = 240;
 
