@@ -86,56 +86,64 @@ function AttemptTest() {
 		)
 	}
 	return (
-		<Paper className={classes.root}>
+		<div className={classes.root}>
 
-			{questions && questions.length ? (<Stepper activeStep={activeStep} orientation="vertical">
-				{questions && questions.map((question, index) => (
-					<Step key={index}>
-						<StepLabel>Question : {index + 1}</StepLabel>
-						<StepContent>
-							<ShowQuestion
-								onChangeValue={onStepChange}
-								totalSteps={questions.length}
-								activeStep={activeStep}
-								questionData={question} />
-						</StepContent>
-					</Step>
+			{questions && questions.length ? (
+				<Paper>
+					<Stepper activeStep={activeStep} orientation="vertical">
+						{questions && questions.map((question, index) => (
+							<Step key={index}>
+								<StepLabel>Question : {index + 1}</StepLabel>
+								<StepContent>
+									<ShowQuestion
+										onChangeValue={onStepChange}
+										totalSteps={questions.length}
+										activeStep={activeStep}
+										questionData={question} />
+								</StepContent>
+							</Step>
 
-				))}
-			</Stepper>
+						))}
+					</Stepper>
+				</Paper>
+
 			) : (
-					<Paper style={{ textAlign: 'center' }}>
-						<Typography variant="h5" component="h2">NO Question Found</Typography>
-					</Paper>
+
+					<Typography className={classes.nodata} variant="h5" component="h2">NO Question Found</Typography>
+
 				)}
 
 			{activeStep === questions.length && questions.length ? (
-				<Grid container spacing={3}>
-					<Grid item xs={12}>
-						<div className={classes.userForm} >
-							<Typography className={classes.margin} variant="h5" component="h2">Quiz completed</Typography>
-							<Typography className={classes.margin} variant="h5" component="h2">Correct Answers - {correctAnswerCount}</Typography>
-							<Grid container spacing={3} >
-								<Grid item xs={12} md={6}>
-									<TextField onChange={e => setName(e.target.value)} fullWidth className={classes.margin} id="outlined-basic"
-										label="Enter Name here" variant="outlined" />
+				<Paper>
+
+
+					<Grid container spacing={3}>
+						<Grid item xs={12}>
+							<div className={classes.userForm} >
+								<Typography variant="h5" component="h2">Quiz completed</Typography>
+								<Typography variant="h5" component="h2">Correct Answers - {correctAnswerCount}</Typography>
+								<Grid container spacing={3} >
+									<Grid item xs={12} md={6}>
+										<TextField onChange={e => setName(e.target.value)} fullWidth id="outlined-basic"
+											label="Enter Name here" variant="outlined" />
+									</Grid>
+									<Grid item xs={12} md={6} lg={6}>
+										<TextField InputProps={{ inputProps: { min: 10, max: 10 } }} type="number" onChange={e => setContact(e.target.value)} fullWidth id="outlined-basic" label="Enter Mobile Number" variant="outlined" />
+									</Grid>
 								</Grid>
-								<Grid item xs={12} md={6} lg={6}>
-									<TextField InputProps={{ inputProps: { min: 10, max: 10 } }} type="number" onChange={e => setContact(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Enter Mobile Number" variant="outlined" />
-								</Grid>
-							</Grid>
-							<Button
-								disabled={!name || !contact}
-								className={classes.actionBtn}
-								variant="contained"
-								color="primary"
-								onClick={submitTest}
-							>Submit	</Button>
-						</div>
+								<Button
+									disabled={!name || !contact}
+									className={classes.actionBtn}
+									variant="contained"
+									color="primary"
+									onClick={submitTest}
+								>Submit	</Button>
+							</div>
+						</Grid>
 					</Grid>
-				</Grid>
+				</Paper>
 			) : null}
-		</Paper>
+		</div>
 	);
 }
 
@@ -152,6 +160,17 @@ const useStyles = makeStyles((theme) => ({
 	},
 	actionBtn: {
 		marginTop: 10
+	},
+	nodata: {
+		textAlign: 'center',
+		color: '#fff',
+		minHeight: '100px',
+		alignItems: 'center',
+		display: 'flex',
+		justifyContent: 'center',
+		fontSize: '2em',
+		cursor: 'pointer',
+		height: '80vh'
 	}
 }));
 

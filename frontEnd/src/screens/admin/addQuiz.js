@@ -44,66 +44,65 @@ function AddQuiz() {
 
 	return (
 		<div>
-			<Grid item xs={12} md={6}>
-				<Card>
-					<CardHeader
-						title="Create New Quiz"
-					/>
-					<Divider></Divider>
-					<form autoComplete="off" >
-						<CardContent>
-							<Grid item xs={12} md={12} lg={12}>
-								<TextField value={quizName} onChange={e => setQuizName(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Quiz Name" variant="outlined" />
-							</Grid>
-							<Grid item xs={12} md={12} lg={12}>
-								<TextField value={numberOfQuestion} type="number" onChange={e => setNumberOfQuestion(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Number Of Questions" variant="outlined" />
-							</Grid>
 
-							<Grid item xs={12} md={12} lg={12}>
-								<MuiPickersUtilsProvider utils={DateFnsUtils}>
-									<KeyboardDatePicker fullWidth
-										disableToolbar
-										variant="inline"
-										format="MM/dd/yyyy"
-										margin="normal"
-										id="date-picker-inline"
-										label="Start Date"
-										value={startDate}
-										minDate={new Date()}
-										onChange={e => setStartdDate(e)}
-										KeyboardButtonProps={{
-											'aria-label': 'change date',
-										}}
-									/>
-								</MuiPickersUtilsProvider>
-							</Grid>
-							<Grid item xs={12} md={12} lg={12}>
-								<MuiPickersUtilsProvider utils={DateFnsUtils}>
-									<KeyboardDatePicker fullWidth
-										disableToolbar
-										variant="inline"
-										format="MM/dd/yyyy"
-										margin="normal"
-										id="date-picker-inline"
-										label="Expiry Date"
-										value={endDate}
-										minDate={startDate}
-										onChange={e => setEndDate(e)}
-										KeyboardButtonProps={{
-											'aria-label': 'change date',
-										}}
-									/>
-								</MuiPickersUtilsProvider>
-							</Grid>
-						</CardContent>
-						<CardActions>
-							<Button disabled={!quizName || !numberOfQuestion} variant="contained" color="primary" onClick={addNewQuiz}>Add</Button>
-							<Typography>{successMsg}</Typography>
-						</CardActions>
-					</form>
-				</Card>
+			<Card>
+				<CardHeader
+					title="Create New Quiz"
+				/>
+				<Divider></Divider>
+				<form autoComplete="off" >
+					<CardContent>
+						<Grid item xs={12} md={12} lg={12}>
+							<TextField value={quizName} onChange={e => setQuizName(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Quiz Name" variant="outlined" />
+						</Grid>
+						<Grid item xs={12} md={12} lg={12}>
+							<TextField value={numberOfQuestion} type="number" onChange={e => setNumberOfQuestion(e.target.value)} fullWidth className={classes.margin} id="outlined-basic" label="Number Of Questions" variant="outlined" />
+						</Grid>
 
-			</Grid>
+						<Grid item xs={12} md={12} lg={12}>
+							<MuiPickersUtilsProvider utils={DateFnsUtils}>
+								<KeyboardDatePicker fullWidth
+									disableToolbar
+									variant="inline"
+									format="MM/dd/yyyy"
+									margin="normal"
+									id="date-picker-inline"
+									label="Start Date"
+									value={startDate}
+									minDate={new Date()}
+									onChange={e => setStartdDate(e)}
+									KeyboardButtonProps={{
+										'aria-label': 'change date',
+									}}
+								/>
+							</MuiPickersUtilsProvider>
+						</Grid>
+						<Grid item xs={12} md={12} lg={12}>
+							<MuiPickersUtilsProvider utils={DateFnsUtils}>
+								<KeyboardDatePicker fullWidth
+									disableToolbar
+									variant="inline"
+									format="MM/dd/yyyy"
+									margin="normal"
+									id="date-picker-inline"
+									label="Expiry Date"
+									value={endDate}
+									minDate={startDate}
+									onChange={e => setEndDate(e)}
+									KeyboardButtonProps={{
+										'aria-label': 'change date',
+									}}
+								/>
+							</MuiPickersUtilsProvider>
+						</Grid>
+					</CardContent>
+					<CardActions>
+						<Button disabled={!quizName || !numberOfQuestion} variant="contained" color="primary" onClick={addNewQuiz}>Add</Button>
+						<Typography>{successMsg}</Typography>
+					</CardActions>
+				</form>
+			</Card>
+
 		</div >
 	);
 }
